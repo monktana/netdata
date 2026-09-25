@@ -1,5 +1,5 @@
 name: netdata
-
+ 
 services:
   netdata:
     image: netdata/netdata:stable
@@ -11,8 +11,8 @@ services:
       - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
-    expose:
-      - '19999'
+    ports:
+      - '127.0.0.1:19999:19999'
     environment:
       - NETDATA_CLAIM_TOKEN=${NETDATA_CLAIM_TOKEN:-}
       - NETDATA_CLAIM_URL=${NETDATA_CLAIM_URL:-https://app.netdata.cloud}
